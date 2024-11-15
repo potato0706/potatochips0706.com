@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://potatochips0706.com/sitemap.xml

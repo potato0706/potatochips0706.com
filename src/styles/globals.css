@@ -1,0 +1,61 @@
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/src/fonts/JetBrainsMono.ttf') format('truetype');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Noto Sans';
+	src: url('/src/fonts/NotoSans.ttf') format('truetype');
+	font-weight: 400;
+}
+
+:root {
+	--light-primary: #f1f1f1;
+
+	--dark-primary: #1f1f1f;
+
+	--gray-primary: #9ca3af;
+
+	--url-primary: #60a5fa;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--light-primary);
+	background-color: var(--dark-primary);
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans', 'JetBrains Mono', monospace;
+}
+
+a,
+.link {
+	color: var(--url-primary);
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+code {
+	font-family: 'JetBrains Mono', monospace;
+}
+
+iframe {
+	border: none;
+}
+
+.sub-text {
+	color: var(--gray-primary);
+	font-size: medium;
+}
+
+.same-line {
+	display: flex;
+	align-items: baseline;
+	gap: 0.25rem;
+}
