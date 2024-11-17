@@ -5,6 +5,6 @@ const app = express();
 
 app.use(handler);
 
-app.listen(80, () => {
-	console.log('App potatochips0706.com is running on port 80.');
+app.listen(3000, () => {
+	console.log('App potatochips0706.com is running on port 3000');
 });
