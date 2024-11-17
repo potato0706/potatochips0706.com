@@ -29,4 +29,6 @@
 			<p>No posts yet.</p>
 		{/if}
 	</div>
+
+	<a href="/">Back to home page</a>
 </main>
