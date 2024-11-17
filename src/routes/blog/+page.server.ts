@@ -1,9 +1,13 @@
 import type { Post, PostMetadata } from '$lib/types/post';
 import { error } from '@sveltejs/kit';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import * as fs from 'fs';
-import * as path from 'path';
 import { compile } from 'mdsvex';
 import type { CompileResult } from 'mdsvex';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function isPostMetadata(obj: any): obj is PostMetadata {
 	return (
@@ -25,14 +29,21 @@ function isCompileResult(obj: any): obj is CompileResult {
 
 export async function load() {
 	try {
-		const postsPath = path.join(process.cwd(), 'src', 'posts');
+		// Navigate up to the project root and then into src/posts
+		const postsPath = join(__dirname, '..', '..', '..', 'src', 'posts');
+
+		if (!fs.existsSync(postsPath)) {
+			console.error(`Posts directory not found at: ${postsPath}`);
+			return { posts: [] };
+		}
+
 		const files = fs.readdirSync(postsPath);
 
 		const posts = await Promise.all(
 			files
 				.filter((file) => file.endsWith('.svx'))
 				.map(async (file) => {
-					const filePath = path.join(postsPath, file);
+					const filePath = join(postsPath, file);
 					const content = fs.readFileSync(filePath, 'utf-8');
 					const slug = file.replace('.svx', '');
 

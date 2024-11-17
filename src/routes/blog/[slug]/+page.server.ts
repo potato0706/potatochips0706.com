@@ -1,9 +1,13 @@
 import type { Post, PostMetadata } from '$lib/types/post';
 import { error } from '@sveltejs/kit';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import * as fs from 'fs';
-import * as path from 'path';
 import { compile } from 'mdsvex';
 import type { CompileResult } from 'mdsvex';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function isPostMetadata(obj: any): obj is PostMetadata {
 	return (
@@ -26,7 +30,8 @@ function isCompileResult(obj: any): obj is CompileResult {
 export async function load({ params }) {
 	try {
 		const { slug } = params;
-		const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.svx`);
+		const postsPath = join(__dirname, '..', '..', '..', '..', 'src', 'posts');
+		const filePath = join(postsPath, `${slug}.svx`);
 
 		if (!fs.existsSync(filePath)) {
 			throw error(404, 'Post not found');
