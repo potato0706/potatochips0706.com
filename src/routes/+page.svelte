@@ -48,7 +48,7 @@
 	<p>
 		Depression patient <code>&&</code> an
 		<span>
-			<a href="https://cantowords.com/dictionary/IT%E7%8B%97">IT9</a>
+			<a href="https://cantowords.com/dictionary/IT%E7%8B%97" target="_blank">IT9</a>
 		</span>
 	</p>
 	<p>Check out my <a href="/blog">blog</a></p>
