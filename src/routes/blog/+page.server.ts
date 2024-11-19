@@ -4,12 +4,11 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import * as fs from 'fs';
 import { compile } from 'mdsvex';
-import type { CompileResult } from 'mdsvex';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function isPostMetadata(obj: any): obj is PostMetadata {
+function isPostMetadata(obj: any) {
 	return (
 		typeof obj === 'object' &&
 		typeof obj.title === 'string' &&
@@ -18,7 +17,7 @@ function isPostMetadata(obj: any): obj is PostMetadata {
 	);
 }
 
-function isCompileResult(obj: any): obj is CompileResult {
+function isCompileResult(obj: Object) {
 	return (
 		typeof obj === 'object' &&
 		obj !== null &&
