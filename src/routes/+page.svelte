@@ -36,13 +36,11 @@
 </div>
 <iframe
 	title="discord"
-	src="https://lanyard.cnrad.dev/api/589390405548769293?bg=1c1c1c&idleMessage=Feeling so bored"
+	src="https://lanyard.cnrad.dev/api/589390405548769293?bg=1c1c1c&idleMessage=It's now {timeString}. {greetingText}"
 	height="210"
 	width="410"
 />
 <div>
-	<p>It's now {timeString}. {greetingText}</p>
-
 	<p>Hongkonger born in 2007</p>
 	<p>Taken by <a href="https://clxudydrxxm.potatochips0706.com">ClxudyDrxxm</a></p>
 	<p>
