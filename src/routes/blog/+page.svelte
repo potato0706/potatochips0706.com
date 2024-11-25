@@ -14,7 +14,7 @@
 			{#each data.posts as post}
 				<article>
 					<h2>
-						<a href="/blog/{post.slug}" class="hover:text-blue-600">
+						<a href="/blog/{post.slug}">
 							{post.title}
 						</a>
 					</h2>
