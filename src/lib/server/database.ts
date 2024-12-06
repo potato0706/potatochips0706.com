@@ -17,7 +17,7 @@ database.run(`CREATE TABLE IF NOT EXISTS Admin (
 				username TEXT PRIMARY KEY,
 				password TEXT NOT NULL
 			)`);
-database.run(`CREATE TABL IF NOT EXISTS "Settings" (
+database.run(`CREATE TABLE IF NOT EXISTS "Settings" (
 				key	INTEGER,
 				"about-text"	BLOB NOT NULL,
 				PRIMARY KEY(key AUTOINCREMENT)
