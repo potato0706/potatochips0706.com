@@ -3,7 +3,7 @@ export interface Post {
 	title: string;
 	date: string;
 	excerpt?: string;
-	content: any;
+	content: string;
 }
 
 export interface PostMetadata {
