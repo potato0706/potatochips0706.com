@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	/* Greeting message */
 	const now = new Date();
@@ -40,17 +43,7 @@
 	height="210"
 	width="410"
 />
-<div>
-	<p>Hongkonger born in 2007</p>
-	<p>Taken by <a href="https://clxudydrxxm.potatochips0706.com">ClxudyDrxxm</a></p>
-	<p>
-		Depression patient <code>&&</code> an
-		<span>
-			<a href="https://cantowords.com/dictionary/IT%E7%8B%97" target="_blank">IT9</a>
-		</span>
-	</p>
-	<p>Check out my <a href="/blog">blog</a></p>
-</div>
+<div>{@html data.text}</div>
 <div>
 	<h2>Achievement</h2>
 	<ul>
