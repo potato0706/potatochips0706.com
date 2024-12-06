@@ -1,5 +1,16 @@
-import { loadPost } from '$lib/posts.js';
+import { loadPost } from '$lib/server/database';
+import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
-	return await loadPost(params.slug);
+	const post = await loadPost(params.slug);
+
+	if (!post) {
+		throw error(404, {
+			message: 'Post not found'
+		});
+	}
+
+	return {
+		post
+	};
 }
