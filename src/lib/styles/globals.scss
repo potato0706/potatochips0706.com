@@ -1,3 +1,8 @@
+$light-primary: #f1f1f1;
+$dark-primary: #1f1f1f;
+$gray-primary: #9ca3af;
+$url-primary: #60a5fa;
+
 @font-face {
 	font-family: 'JetBrains Mono';
 	src: url('/src/fonts/JetBrainsMono.ttf') format('truetype');
@@ -10,23 +15,13 @@
 	font-weight: 400;
 }
 
-:root {
-	--light-primary: #f1f1f1;
-
-	--dark-primary: #1f1f1f;
-
-	--gray-primary: #9ca3af;
-
-	--url-primary: #60a5fa;
-}
-
 html {
 	scroll-behavior: smooth;
 }
 
 body {
-	color: var(--light-primary);
-	background-color: var(--dark-primary);
+	color: $light-primary;
+	background-color: $dark-primary;
 	margin: 0;
 	padding: 0;
 	font-family: 'Noto Sans', 'JetBrains Mono', monospace;
@@ -34,7 +29,7 @@ body {
 
 a,
 .link {
-	color: var(--url-primary);
+	color: $url-primary;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
@@ -43,6 +38,7 @@ a,
 
 code {
 	font-family: 'JetBrains Mono', monospace;
+	color: white;
 }
 
 iframe {
@@ -50,7 +46,7 @@ iframe {
 }
 
 .sub-text {
-	color: var(--gray-primary);
+	color: $gray-primary;
 	font-size: medium;
 }
 

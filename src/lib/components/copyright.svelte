@@ -4,10 +4,10 @@
 			>GitHub</a
 		>!
 	</p>
-	<p>&COPY; 2024 <a href=".">Potato_Chips0706</a> under GPL-3.0 license</p>
+	<p>&COPY; 2024 <a href=".">Potato_Chips0706</a></p>
 </div>
 
-<style>
+<style lang="scss">
 	.copyright {
 		position: fixed;
 		bottom: 0.25em;

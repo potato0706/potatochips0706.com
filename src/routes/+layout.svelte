@@ -4,7 +4,7 @@
 	import Copyright from '$lib/components/copyright.svelte';
 	import Oneko from '$lib/components/oneko.svelte';
 
-	import '../styles/globals.css';
+	import '$lib/styles/globals.scss';
 </script>
 
 <Background />

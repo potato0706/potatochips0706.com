@@ -32,7 +32,7 @@
 	/>
 {/each}
 
-<style>
+<style lang="scss">
 	.background {
 		position: fixed;
 		top: 0;
