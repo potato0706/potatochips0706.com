@@ -3,6 +3,7 @@ import { Database } from 'bun:sqlite';
 import type { SQLQueryBindings } from 'bun:sqlite';
 import { error } from '@sveltejs/kit';
 import type { Post } from '$lib/types/post';
+import { marked } from 'marked';
 
 const database = new Database(join(process.cwd(), 'data.db'));
 database.run(`CREATE TABLE IF NOT EXISTS Posts (
@@ -12,6 +13,20 @@ database.run(`CREATE TABLE IF NOT EXISTS Posts (
 				excerpt TEXT,
 				content TEXT NOT NULL
 			)`);
+database.run(`CREATE TABLE IF NOT EXISTS Admin (
+				username TEXT PRIMARY KEY,
+				password TEXT NOT NULL
+			)`);
+database.run(`CREATE TABL IF NOT EXISTS "Settings" (
+				key	INTEGER,
+				"about-text"	BLOB NOT NULL,
+				PRIMARY KEY(key AUTOINCREMENT)
+			);`);
+database.run(`CREATE TABLE IF NOT EXISTS "Admin" (
+				username	TEXT,
+				password	TEXT NOT NULL,
+				PRIMARY KEY("username")
+);`);
 
 export async function getPosts() {
 	try {
@@ -30,22 +45,26 @@ export async function getPosts() {
 
 export async function loadPost(slug: string) {
 	try {
-		const posts = database
+		const post = database
 			.query<Post, SQLQueryBindings | SQLQueryBindings[]>('SELECT * FROM Posts WHERE slug = ?')
 			.get(slug);
 
-		if (!posts) throw error(404, 'Post not found');
+		if (!post) {
+			throw error(404, {
+				message: 'Post not found'
+			});
+		}
 
-		const post: Post = {
-			slug,
-			title: posts.title,
-			date: posts.date,
-			excerpt: posts.excerpt,
-			content: posts.content
+		const content = marked.parse(post.content);
+
+		return {
+			...post,
+			content
 		};
-
-		return { post };
 	} catch (e: any) {
+		if (e.status) {
+			throw e;
+		}
 		console.error(e);
 		throw error(500, 'Could not load blog post');
 	}
