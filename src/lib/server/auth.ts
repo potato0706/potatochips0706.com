@@ -1,8 +1,5 @@
-import { join } from 'node:path';
-import Database from 'bun:sqlite';
 import jwt from 'jsonwebtoken';
-
-const database = new Database(join(process.cwd(), 'data.db'));
+import { database } from '$lib/constants';
 
 export function validateCredentials(username: string, password: string) {
 	const user = database

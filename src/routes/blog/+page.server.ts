@@ -1,12 +1,9 @@
-import { join } from 'node:path';
-import { Database } from 'bun:sqlite';
 import type { SQLQueryBindings } from 'bun:sqlite';
 import { error } from '@sveltejs/kit';
 import type { Post } from '$lib/types/post';
+import { database } from '$lib/constants';
 
 export async function load() {
-	const database = new Database(join(process.cwd(), 'data.db'));
-
 	try {
 		const posts = database
 			.query<Post, SQLQueryBindings | SQLQueryBindings[]>('SELECT * FROM Posts')
