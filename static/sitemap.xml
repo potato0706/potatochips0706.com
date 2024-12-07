@@ -8,8 +8,13 @@
 	xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
     <url>
-	    <loc>https://potatochips0706.com/</loc>
+	    <loc>https://potatochips0706.com</loc>
 	    <lastmod>2024-10-08T20:19:17+01:00</lastmod>
 	    <priority>1</priority>
     </url>
+	<url>
+		<loc>https://potatochips0706.com/blog</loc>
+		<lastmod>2024-10-08T20:19:17+01:00</lastmod>
+		<priority>0.8</priority>
+	</url>
 </urlset>
