@@ -3,16 +3,16 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	build: {
+		rollupOptions: {
+			external: ['bun:sqlite']
+		}
+	},
 	css: {
 		preprocessorOptions: {
 			scss: {
 				api: 'modern'
 			}
-		}
-	},
-	build: {
-		rollupOptions: {
-			external: ['bun:sqlite']
 		}
 	}
 });
