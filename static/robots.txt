@@ -1,2 +1,4 @@
 User-agent: *
+Disallow: /admin
+Disallow: /api/*
 Sitemap: https://potatochips0706.com/sitemap.xml
