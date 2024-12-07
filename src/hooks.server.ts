@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { verifyToken } from '$lib/server/auth';
-import { database } from '$lib/server/database';
+import { database } from '$lib/constants';
 
 database.run(`CREATE TABLE IF NOT EXISTS "Posts" (
 	"slug" TEXT PRIMARY KEY,
