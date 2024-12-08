@@ -7,7 +7,7 @@ database.run(`CREATE TABLE IF NOT EXISTS "Posts" (
 	"title" TEXT NOT NULL,
 	"date" DATETIME NOT NULL,
 	"excerpt" TEXT,
-	"content" TEXT NOT NULL
+	"content" TEXT NOT NULL,
 	"category" TEXT NOT NULL
 )`);
 database.run(`CREATE TABLE IF NOT EXISTS "Admin" (
