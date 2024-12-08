@@ -37,3 +37,18 @@ export const actions: Actions = {
 		return { success: true };
 	}
 };
+
+export function load() {
+	const data = database.query('SELECT "about-text" FROM Settings WHERE key = 1').get() as Record<
+		string,
+		string
+	>;
+
+	if (!data) {
+		return fail(404, { error: 'About text not found' });
+	}
+
+	const aboutText = data['about-text'];
+
+	return { aboutText };
+}

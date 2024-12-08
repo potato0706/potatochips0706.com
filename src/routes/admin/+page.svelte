@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import type { ActionData } from './$types';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	export let form: ActionData;
 
@@ -28,7 +31,7 @@
 	<main>
 		<form method="POST" action="?/updateAbout" use:enhance={handleAboutSubmit}>
 			<h2>About me text</h2>
-			<textarea name="about-text" rows="10" cols="50" />
+			<textarea name="about-text" rows="10" cols="50">{data.aboutText}</textarea>
 			<button type="submit">Save about text</button>
 		</form>
 
